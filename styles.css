@@ -1,29 +1,38 @@
 /* https://stitchpalettes.com/wp-content/uploads/2023/04/SPA1371_square.jpg */
 
-*{
+body{
     margin: 0;
     padding: 0;
-}
-
-body{
-
+    height: 100%;
     font-family: 'Roboto', sans-serif;
+    overflow: auto;
 }
 
 .container{
-    height: 100vh;
+    height: auto;
+    overflow: hidden;
     display: grid;
-    grid-template: .5fr 4fr 4fr / 1fr 3fr 1fr;
+    grid-template: .5fr 4fr / 1.08fr 4fr;
 }
 
 .header{
     grid-row: 1;
     grid-column: 2/4;
     display: grid;
-    grid-template-rows: 1fr 1.5fr;
-    grid-template-columns: 60% 40%;
+    grid-template-rows: 1fr 1.1fr;
+    grid-template-columns: 1.5fr 1fr;
     background: #FFFFFF;
-    box-shadow: 2px 2px 2px rgb(206,211,218);
+    box-shadow: 2px 2px 10px rgb(206,211,218);
+}
+
+label{
+    display: grid;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 25px;
+    cursor: pointer;
+    padding: 20px 0;
+    margin: 5px 0 0 3vw;
 }
 
 #search{
@@ -34,18 +43,9 @@ body{
     outline: none;
     border-radius: 50px;
     background-color: rgb(226,232,240);
-    margin: 15px 50px;
+    margin: 20px 0 0 8vw;
     height: 30px;
-    width: 40vw;
-}
-
-label{
-    display: grid;
-    grid-column: 1/2;
-    grid-row: 1/2;
-    width: 25px;
-    cursor: pointer;
-    padding: 20px 0;
+    width: 35vw;
 }
 
 textarea:focus, input:focus{
@@ -53,8 +53,8 @@ textarea:focus, input:focus{
 }
 
 svg{
-    width: 25px;
-    height: 25px;
+    width: 23px;
+    height: 23px;
 }
 
 .name{
@@ -68,13 +68,13 @@ svg{
     display: flex;
     grid-column: 2/3;
     justify-content: end;
-    margin-right: 10vw;
+    margin: 3px 4vw 0 0;
     gap: 30px;
 }
 
 .icon-pic{
     display: flex;
-    background: #D86927;
+    background: #FACC15;
     border-radius: 50%;
 }
 
@@ -88,22 +88,24 @@ svg{
 .greet-nav{
     grid-row: 2/3;
     display: flex;
-    align-items: center;
+    align-content: start;
+    margin-left: 3vw;
 }
 
 .icon-pic.main{
     padding: 10px;
-    width: 70px;
-    height: 70px;
-    margin-right: 30px;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
 }
 
 div.greeting{
-    font-weight: 800    
+    font-weight: 800;
+    margin-top: 2vh;
 }
 
 .greeting .sub{
-    margin: 3px 0;
+    margin: 0;
     font-size: .9rem;
 }
 
@@ -112,21 +114,203 @@ div.greeting{
 }
 
 .nav{
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-column: 2;
+    grid-row: 2/3;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    margin-top: 3vh;
     gap: 1.5rem;
     justify-content: end;
-    margin-right: 10vw;
+    margin-right: 4vw;
     flex: 1;
 }
 
 .nav button{
-    padding: 10px 30px;
-    font-size: 1rem;
+    padding: 10px 0;
+    font-size: .9rem;
     font-weight: 600;
     border: none;
     border-radius: 40px;
-    background-color: #D49260;
-    color: whitesmoke;
+    background-color: #1992D4;
+    color: #FFFFFF;
+    cursor: pointer;
+    /* flex-shrink: 1; */
+}
+
+.sidebar{
+    grid-row: 1/-1;
+    grid-column: 1;
+    font-weight: 500;
+    background: #1992D4;
+    color: white;
+}
+
+.sidebar .title{
+    height: 50px;
+    margin: 2vh 0 0 2vw;
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    font-size: 1.6rem;
+}
+
+.logo{
+    display: grid;
+    width: 30px;
+    height: 30px;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 3px;
+    /* border: 1px solid yellow; */
+}
+
+.logo .one, 
+.logo .two,
+.logo .three,
+.logo .four{
+    background: white;
+}
+
+.logo .one,
+.logo .four{
+    width: 15px;
+    height: 18px;
+}
+
+.logo .two,
+.logo .three{
+    width: 15px;
+    height: 10px;
+}
+
+.logo .four{
+    margin-top: -8px;
+}
+
+.sidebar svg{
+    fill: #ffffff;
+    width: 23px;
+    height: 23px;
+}
+
+.userDashboard > .iconTextLabel,
+.userSettings > .iconTextLabel{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 0 0 20px 2vw;
+    font-size: 1.3rem;
+}
+
+.userDashboard, 
+.userSettings{
+    margin-top: 50px;
+}
+
+.main-content{
+    display: grid;
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+    background: #E2E8F0;
+    grid-template: 1fr 1fr / 3fr 1fr;
+    padding-bottom: 70px;
+}
+
+.main-content .projects{
+    display: grid;
+    gap: 30px;
+    margin: 10vh 0 0 20px;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+}
+
+.main-content .text{
+    margin: 30px 0 20px 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: rgb(12,12,12);
+}
+
+.main-content .text.project{
+    grid-column: 1/2;
+    grid-row: 1;
+}
+
+.projects .container{
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 210px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border-left: 8px solid #F0B429;
+    box-shadow: 2px 2px 2px 2px rgb(209,214,220);
+    overflow: hidden;
+}
+
+.projects .main-text{
+    margin: 30px 0 0 20px;
+    font-weight: 700;
+}
+
+.projects .sub-text{
+    margin: 0 30px 20px 20px;
+    font-size: 0.9rem;
+    color: #767676;
+    font-weight: 400;
+}
+
+.projects .content-icons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    margin: auto 30px 0 0px;
+    margin-bottom: 20px;
+    fill: rgb(51,51,51);
     cursor: pointer;
 }
+
+.main-content .announcements .container-side,
+.main-content .trending .container-side{
+    box-sizing: border-box;
+    padding: 25px;
+    width: 220px;
+    height: 310px;
+    background: white;
+    border-radius: 10px;
+    margin: -4px auto 0 auto;
+    box-shadow: 2px 2px 2px 2px rgb(209,214,220);
+}
+
+.main-content .announcements{
+    grid-column: 2/3;
+    grid-row: 1/-1;
+}
+
+.main-content .trending{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.announcements .container-side{
+    font-size: .8rem;
+}
+
+.announcements .portion{
+    height: 75px;
+    overflow: hidden;
+}
+
+.announcements .main-text{
+    font-weight: 500;
+}
+
+.announcements .sub-text,
+.announcements .line{
+    color: #767676;
+    text-overflow: ellipsis;
+}
+
+
