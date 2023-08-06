@@ -8,11 +8,12 @@ body{
     overflow: auto;
 }
 
-.container{
-    height: auto;
+.whole-container{
+    min-height: 100vh;
     overflow: hidden;
     display: grid;
     grid-template: .5fr 4fr / 1.08fr 4fr;
+    /* display: flex; */
 }
 
 .header{
@@ -70,6 +71,7 @@ svg{
     justify-content: end;
     margin: 3px 4vw 0 0;
     gap: 30px;
+    cursor: pointer;
 }
 
 .icon-pic{
@@ -97,6 +99,7 @@ svg{
     width: 60px;
     height: 60px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 div.greeting{
@@ -139,6 +142,9 @@ div.greeting{
 }
 
 .sidebar{
+    height: 100%;
+    /* position: absolute; */
+    /* height: 100%; */
     grid-row: 1/-1;
     grid-column: 1;
     font-weight: 500;
@@ -162,6 +168,7 @@ div.greeting{
     grid-template: 1fr 1fr / 1fr 1fr;
     gap: 3px;
     /* border: 1px solid yellow; */
+    cursor: pointer;
 }
 
 .logo .one, 
@@ -200,6 +207,7 @@ div.greeting{
     align-items: center;
     margin: 0 0 20px 2vw;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .userDashboard, 
@@ -208,11 +216,12 @@ div.greeting{
 }
 
 .main-content{
+    height: 100%;
     display: grid;
     grid-column: 2/-1;
     grid-row: 2/-1;
     background: #E2E8F0;
-    grid-template: 1fr 1fr / 3fr 1fr;
+    grid-template: 1fr / 3fr 1fr;
     padding-bottom: 70px;
 }
 
@@ -222,8 +231,9 @@ div.greeting{
     margin: 10vh 0 0 20px;
     grid-column: 1/2;
     grid-row: 1/-1;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, 210px);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* grid-template: 1fr 1fr 1fr / 1fr 1fr; */
 }
 
 .main-content .text{
@@ -248,6 +258,7 @@ div.greeting{
     border-left: 8px solid #F0B429;
     box-shadow: 2px 2px 2px 2px rgb(209,214,220);
     overflow: hidden;
+    cursor: pointer;
 }
 
 .projects .main-text{
@@ -276,7 +287,7 @@ div.greeting{
 .main-content .trending .container-side{
     box-sizing: border-box;
     padding: 25px;
-    width: 220px;
+    width: 230px;
     height: 310px;
     background: white;
     border-radius: 10px;
@@ -284,14 +295,9 @@ div.greeting{
     box-shadow: 2px 2px 2px 2px rgb(209,214,220);
 }
 
-.main-content .announcements{
+.main-content .right-sidebar{
     grid-column: 2/3;
     grid-row: 1/-1;
-}
-
-.main-content .trending{
-    grid-column: 2/3;
-    grid-row: 2/3;
 }
 
 .announcements .container-side{
@@ -301,6 +307,7 @@ div.greeting{
 .announcements .portion{
     height: 75px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .announcements .main-text{
@@ -313,4 +320,50 @@ div.greeting{
     text-overflow: ellipsis;
 }
 
+.trending .topics{
+    margin-top: -15px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.trending .main-text{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.trending .sub-text{
+    color: #767676;
+    font-size: .8rem;
+    font-weight: 300;
+}
+
+.icon-pic.trending{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    flex: 0 0 auto;
+}
+
+.trending .icon-pic.one{
+    background: rgb(224,242,254);
+}
+
+.trending .icon-pic.two{
+    background: #FACC15;
+}
+
+.trending .icon-pic.three{
+    background: #A3A3A3;
+}
+
+.trending .icon-pic.four{
+    background: #FDA4AF;
+}
+
+.trending .topics,
+.sidebar .title .text{
+    cursor: pointer;
+}
 
